@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>light bulb</title>
+</head>
+<body>
+<script>
+    function SwitchButton() {
+        this.connectToLamp = function (lamp) {
+            this.lamp = lamp;
+    };
+    this.switchOn = function () {
+        this.status = true;
+        this.lamp.turnOn();
+    };
+    this.switchOff = function () {
+        this.status = false;
+        this.lamp.turnOff();
+    };
+
+    }
+
+    function ElectricLamp() {
+        this.turnOn = function () {
+            this.status = true;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+    }
+    let switchButton1 = new SwitchButton();
+    let electricLamp1 = new ElectricLamp();
+    switchButton1.connectToLamp(electricLamp1);
+    switchButton1.status = true;
+    for (let i = 0; i < 10; i++) {
+        switchButton1.status = !switchButton1.status;
+        if (switchButton1.status) document.write("den sang <br>");
+        else document.write("den khong sang: <br>");
+    }
+</script>
+</body>
+</html>
